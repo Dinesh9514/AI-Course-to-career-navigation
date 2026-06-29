@@ -1,0 +1,8 @@
+{
+  "name": "AI Course-to-Career Navigator",
+  "description": "A comprehensive AI-powered platform to convert course paths into complete career roadmaps, providing internship recommendations, skill gap analysis, portfolio builders, and mock recruitment tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

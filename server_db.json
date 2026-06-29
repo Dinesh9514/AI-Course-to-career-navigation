@@ -1,0 +1,103 @@
+{
+  "users": {
+    "demo@navigator.ai": {
+      "id": "demo-user-id",
+      "name": "Demo Student",
+      "email": "demo@navigator.ai",
+      "password": "password123",
+      "profile": {
+        "avatarUrl": "https://api.dicebear.com/7.x/adventurer/svg?seed=user",
+        "bio": "Aspiring Web Developer & Tech Enthusiast exploring Career Paths.",
+        "targetRole": "Full Stack Developer",
+        "completedCourses": [
+          "Web Development",
+          "Data Science"
+        ],
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React"
+        ]
+      }
+    },
+    "shaindhavisrinivasan1610@gmail.com": {
+      "id": "user-9dbsrdh",
+      "name": "Shaindhavisrinivasan",
+      "email": "shaindhavisrinivasan1610@gmail.com",
+      "password": "shaindhavi@2005",
+      "profile": {
+        "avatarUrl": "https://api.dicebear.com/7.x/adventurer/svg?seed=Shaindhavisrinivasan",
+        "bio": "Passionate learner charting my career journey.",
+        "targetRole": "Software Developer",
+        "completedCourses": [],
+        "skills": [
+          "React",
+          "TypeScript",
+          "Node.js"
+        ]
+      }
+    }
+  },
+  "roadmaps": {},
+  "skillGaps": {},
+  "projects": {},
+  "savedInternships": {
+    "demo-user-id": [
+      "intern-1",
+      "intern-3"
+    ]
+  },
+  "portfolios": {},
+  "notifications": {
+    "demo-user-id": [
+      {
+        "id": "notif-1",
+        "title": "New Remote Frontend Internship available!",
+        "message": "Google has just posted a Remote React Developer Intern position matching your skills.",
+        "type": "internship",
+        "isRead": true,
+        "date": "2026-06-27T10:00:00Z",
+        "link": "#internships"
+      },
+      {
+        "id": "notif-2",
+        "title": "Global Coding Challenge 2026",
+        "message": "Compete against 10k+ developers and win cash prizes plus internship vouchers.",
+        "type": "contest",
+        "isRead": true,
+        "date": "2026-06-26T15:30:00Z",
+        "link": "#hackathons"
+      },
+      {
+        "id": "notif-3",
+        "title": "AWS Certification Discount: 50% Off",
+        "message": "Claim your discount coupon for AWS Certified Cloud Practitioner before June 30.",
+        "type": "discount",
+        "isRead": true,
+        "date": "2026-06-25T09:00:00Z",
+        "link": "#certifications"
+      }
+    ],
+    "user-9dbsrdh": [
+      {
+        "id": "notif-welcome",
+        "title": "Welcome to AI Course-to-Career Navigator!",
+        "message": "Hi Shaindhavisrinivasan! We've created your account and personalized roadmap targets for Software Developer.",
+        "time": "Just now",
+        "isRead": false,
+        "link": "#roadmap"
+      }
+    ]
+  },
+  "chats": {
+    "demo-user-id": [
+      {
+        "id": "chat-1",
+        "sender": "bot",
+        "text": "Hi! I am your AI Career Navigator. Ask me anything about interview prep, resumes, project structures, or learning steps!",
+        "timestamp": "2026-06-28T05:00:00.000Z"
+      }
+    ]
+  }
+}

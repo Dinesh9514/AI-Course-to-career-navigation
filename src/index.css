@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base Theme Overrides: Elegant Minimalist Warm Beige & Obsidian Black */
+body {
+  background-color: #F6F4EB !important; /* Soft warm cream beige */
+  color: #111111 !important; /* Rich charcoal black */
+  font-family: var(--font-sans);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F4EB;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 17, 0.3);
+}
+
+/* Dashboard structural cards & layouts override */
+.bg-\[\#0B0C10\] {
+  background-color: #F6F4EB !important;
+}
+
+.bg-\[\#1F2833\] {
+  background-color: #FFFFFF !important; /* Premium crisp paper white cards */
+  box-shadow: 0 4px 20px -2px rgba(46, 44, 40, 0.05), 0 2px 8px -1px rgba(46, 44, 40, 0.03) !important;
+}
+
+/* Background gradients override */
+.bg-gradient-to-r.from-\[\#1F2833\].to-\[\#0B0C10\] {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+}
+
+.bg-gradient-to-br.from-slate-900.via-slate-950.to-slate-900 {
+  background-image: none !important;
+  background-color: #F6F4EB !important;
+}
+
+/* Hover background adjustments */
+.hover\:bg-\[\#1F2833\]:hover {
+  background-color: #FAF8F2 !important;
+}
+
+.bg-\[\#0B0C10\]\/40 {
+  background-color: #FAF8F2 !important;
+}
+
+.bg-\[\#0B0C10\]\/60 {
+  background-color: #F6F4EB !important;
+}
+
+.bg-\[\#0B0C10\]\/20 {
+  background-color: rgba(17, 17, 17, 0.03) !important;
+}
+
+/* Text elements colors mapping */
+.text-white {
+  color: #111111 !important;
+}
+
+.text-\[\#C5C6C7\] {
+  color: #4A463E !important; /* Deep warm gray for readable body text */
+}
+
+.text-\[\#C5C6C7\]\/80 {
+  color: rgba(74, 70, 62, 0.8) !important;
+}
+
+.text-\[\#C5C6C7\]\/60 {
+  color: rgba(74, 70, 62, 0.6) !important;
+}
+
+.text-\[\#C5C6C7\]\/50 {
+  color: rgba(74, 70, 62, 0.5) !important;
+}
+
+.text-\[\#C5C6C7\]\/40 {
+  color: rgba(74, 70, 62, 0.4) !important;
+}
+
+/* Turquoise/teal elements -> elegant black / deep charcoal accents */
+.text-\[\#66FCF1\] {
+  color: #111111 !important; /* Charcoal black primary branding */
+  font-weight: 700 !important;
+}
+
+.bg-\[\#66FCF1\] {
+  background-color: #111111 !important; /* Obsidian black background for main actions */
+  color: #FAF8F2 !important; /* Cream text on black buttons */
+  border: 1px solid #111111 !important;
+}
+
+.bg-\[\#66FCF1\]:hover {
+  background-color: #2E2C27 !important;
+  border-color: #2E2C27 !important;
+}
+
+.bg-\[\#66FCF1\]\/10 {
+  background-color: rgba(17, 17, 17, 0.05) !important;
+  color: #111111 !important;
+}
+
+/* Borders mapping */
+.border-\[\#45A29E\]\/20 {
+  border-color: rgba(17, 17, 17, 0.1) !important;
+}
+
+.border-\[\#45A29E\]\/15 {
+  border-color: rgba(17, 17, 17, 0.08) !important;
+}
+
+.border-\[\#45A29E\]\/10 {
+  border-color: rgba(17, 17, 17, 0.06) !important;
+}
+
+.border-\[\#45A29E\]\/30 {
+  border-color: rgba(17, 17, 17, 0.16) !important;
+}
+
+/* Sidebar button hover adjustments */
+.hover\:text-\[\#66FCF1\]:hover {
+  color: #111111 !important;
+}
+
+.hover\:bg-\[\#0B0C10\]\/20:hover {
+  background-color: rgba(17, 17, 17, 0.05) !important;
+}
+
+/* Active tab style in Sidebar */
+.bg-\[\#0B0C10\].text-\[\#66FCF1\] {
+  background-color: #FAF8F2 !important;
+  color: #111111 !important;
+  border-left-color: #111111 !important;
+  box-shadow: none !important;
+}
+
+/* Lucide icons in sidebar when active */
+.text-\[\#66FCF1\] svg {
+  color: #111111 !important;
+}
+
+.text-\[\#45A29E\] {
+  color: #7A756B !important;
+}
+
+/* Code block styles */
+pre.bg-\[\#0B0C10\] {
+  background-color: #FAF8F2 !important;
+  color: #111111 !important;
+  border-color: rgba(17, 17, 17, 0.1) !important;
+}
+
+/* Input Fields overrides */
+input, select, textarea {
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  border-color: rgba(17, 17, 17, 0.15) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #111111 !important;
+  outline: none !important;
+}
+
+/* Specific buttons text color fixing on black background */
+button.bg-\[\#66FCF1\] span,
+button.bg-\[\#66FCF1\] div,
+button.bg-\[\#66FCF1\] svg,
+button.bg-\[\#66FCF1\] p,
+a.bg-\[\#66FCF1\] {
+  color: #FAF8F2 !important;
+}
+
+/* Dropdown styling */
+.bg-\[\#1F2833\] select {
+  background-color: #FFFFFF !important;
+}
+
+/* Chart customizations */
+.recharts-cartesian-grid-horizontal line, .recharts-cartesian-grid-vertical line {
+  stroke: rgba(17, 17, 17, 0.08) !important;
+}
+
+.recharts-text {
+  fill: #4A463E !important;
+}
+
+/* Specific fixes for headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #111111 !important;
+}
+
+/* Badge specific adjustments */
+.bg-emerald-950\/30 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.text-emerald-400 {
+  color: #059669 !important;
+}
+
+.border-emerald-500\/30 {
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.bg-red-950\/20 {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+.text-red-400 {
+  color: #DC2626 !important;
+}
+
+.border-red-500\/20 {
+  border-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+.bg-amber-950\/20 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+.text-amber-400 {
+  color: #D97706 !important;
+}
+
+.border-amber-500\/20 {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
