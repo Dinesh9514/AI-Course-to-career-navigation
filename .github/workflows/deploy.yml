@@ -20,24 +20,56 @@ jobs:
           environment-url: 'https://ai-course-to-career-navigation.onrender.com'
           environment: production
 
-      - name: Trigger Render Deploy Hook
+      - name: Wait for Render Deployment to be Healthy
         run: |
-          if [ -z "$DEPLOY_HOOK" ]; then
-            echo "=========================================================="
-            echo "ERROR: RENDER_DEPLOY_HOOK_URL secret is not configured!"
-            echo "=========================================================="
-            echo "To fix this error, please add the deploy hook from Render:"
-            echo "1. Go to your Render web service Dashboard -> Settings."
-            echo "2. Copy the Deploy Hook URL under the Deploy Hook section."
-            echo "3. Go to GitHub -> Settings -> Secrets and variables -> Actions."
-            echo "4. Click 'New repository secret', name it 'RENDER_DEPLOY_HOOK_URL',"
-            echo "   and paste the URL as the value."
-            echo "=========================================================="
-            exit 1
-          fi
-          curl -s -f -X POST "$DEPLOY_HOOK"
-        env:
-          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          node -e "
+          const https = require('https');
+          const url = 'https://ai-course-to-career-navigation.onrender.com/api/admin/stats';
+          let attempts = 0;
+          const maxAttempts = 20;
+          const interval = 30000; // 30 seconds
+
+          function check() {
+            attempts++;
+            console.log('Attempt ' + attempts + '/' + maxAttempts + ': Checking service health...');
+            
+            const req = https.get(url, { timeout: 10000 }, (res) => {
+              let data = '';
+              res.on('data', chunk => data += chunk);
+              res.on('end', () => {
+                try {
+                  const json = JSON.parse(data);
+                  if (json.systemStatus === 'Healthy') {
+                    console.log('Render deployment is Healthy!');
+                    process.exit(0);
+                  }
+                } catch(e) {}
+                retry();
+              });
+            });
+
+            req.on('error', (err) => {
+              console.log('Network error:', err.message);
+              retry();
+            });
+
+            req.on('timeout', () => {
+              console.log('Request timed out.');
+              req.destroy();
+              retry();
+            });
+          }
+
+          function retry() {
+            if (attempts >= maxAttempts) {
+              console.error('Timed out waiting for Render deployment to become healthy.');
+              process.exit(1);
+            }
+            setTimeout(check, interval);
+          }
+
+          check();
+          "
 
       - name: Update deployment status (Success)
         if: success()
