@@ -22,7 +22,22 @@ jobs:
 
       - name: Trigger Render Deploy Hook
         run: |
-          curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo "=========================================================="
+            echo "ERROR: RENDER_DEPLOY_HOOK_URL secret is not configured!"
+            echo "=========================================================="
+            echo "To fix this error, please add the deploy hook from Render:"
+            echo "1. Go to your Render web service Dashboard -> Settings."
+            echo "2. Copy the Deploy Hook URL under the Deploy Hook section."
+            echo "3. Go to GitHub -> Settings -> Secrets and variables -> Actions."
+            echo "4. Click 'New repository secret', name it 'RENDER_DEPLOY_HOOK_URL',"
+            echo "   and paste the URL as the value."
+            echo "=========================================================="
+            exit 1
+          fi
+          curl -s -f -X POST "$DEPLOY_HOOK"
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
 
       - name: Update deployment status (Success)
         if: success()
