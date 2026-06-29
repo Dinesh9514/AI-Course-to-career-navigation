@@ -1,0 +1,42 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start GitHub Deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: '${{ github.token }}'
+          environment-url: 'https://ai-course-to-career-navigation.onrender.com'
+          environment: production
+
+      - name: Trigger Render Deploy Hook
+        run: |
+          curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+
+      - name: Update deployment status (Success)
+        if: success()
+        uses: chrnorm/deployment-action@v2
+        with:
+          token: '${{ github.token }}'
+          environment-url: 'https://ai-course-to-career-navigation.onrender.com'
+          environment: production
+          state: 'success'
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (Failure)
+        if: failure()
+        uses: chrnorm/deployment-action@v2
+        with:
+          token: '${{ github.token }}'
+          environment-url: 'https://ai-course-to-career-navigation.onrender.com'
+          environment: production
+          state: 'failure'
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
