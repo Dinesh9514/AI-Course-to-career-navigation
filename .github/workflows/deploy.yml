@@ -73,7 +73,7 @@ jobs:
 
       - name: Update deployment status (Success)
         if: success()
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-status@v2
         with:
           token: '${{ github.token }}'
           environment-url: 'https://ai-course-to-career-navigation.onrender.com'
@@ -83,7 +83,7 @@ jobs:
 
       - name: Update deployment status (Failure)
         if: failure()
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-status@v2
         with:
           token: '${{ github.token }}'
           environment-url: 'https://ai-course-to-career-navigation.onrender.com'
