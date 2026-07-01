@@ -1,6 +1,6 @@
 # AI Course-to-Career Navigator 🚀
 
-**Live Demo:** [https://ai-course-to-career-navigation.onrender.com](https://ai-course-to-career-navigation.onrender.com)
+**Live Demo:** https://ai-course-to-career-navigation.onrender.com/
 
 The **AI Course-to-Career Navigator** is an enterprise-grade full-stack platform designed to help students bridge the gap between academic learning and high-impact industry careers. Leveraging the **Gemini 3.5 Flash** large language model, the application automatically maps complete career pathways, analyzes technical skill gaps, structures custom capstone projects, and builds professional recruiter portfolios.
 
